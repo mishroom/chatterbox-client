@@ -1,5 +1,8 @@
 body {
     background: #eee;
+    background-image: url("background.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
     padding: 0 25px;
     font-family: arial, sans-serif;
@@ -86,5 +89,10 @@ form input[type=text] {
 .friend {
     color: #fff;
     background-color: #0090da;
+}
+
+.chatbox {
+    border: 2px;
+    border-radius: 8px;
 }
 
