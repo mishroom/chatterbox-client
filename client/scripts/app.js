@@ -15,7 +15,6 @@ app.init = function () {
   // });  
   this.handleUsernameClick();
   this.handleSubmit();
-  $('#chats').append('<p>test</p>');
 };
 
 
@@ -52,8 +51,15 @@ app.fetch = function (message) {
     url: this.server,
     type: 'GET',
     data: message,
+    data: {order: "-createdAt", limit: 10},
     contentType: 'application/json',
+    
     success: function (data) {
+      console.log(data);
+      for (var i = 0; i < data.results.length; i++) {
+       
+        app.renderMessage(data.results[i]);
+      }
       console.log('chatterbox: Message sent');
     },
     error: function (data) {
