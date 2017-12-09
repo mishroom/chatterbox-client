@@ -1,10 +1,9 @@
-
-
 var app = {
-  
+
 };
 // console.log(this);
 app.init = function () {
+  
   //event listeners here
   // //use .fetch to get messages
   // //create new instance for each message ?
@@ -15,6 +14,7 @@ app.init = function () {
   // });  
   this.handleUsernameClick();
   this.handleSubmit();
+  this.fetch();
 };
 
 
@@ -98,6 +98,9 @@ app.handleUsernameClick = function () {
 app.handleSubmit = function() {
   
 };
+
+
+
 
 // app.handleUsernameClick = true; //LOLWUT THIS
 
