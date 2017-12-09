@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>chatterbox</title>
+    <title>Chatterbox</title>
     <link rel="stylesheet" href="styles/styles.css">
 
     <!-- dependencies -->
@@ -10,15 +10,15 @@
     <script src="bower_components/underscore/underscore.js"></script>
     <img src = "background.jpg">
     <script>
-    // YOU DO NOT NEED TO EDIT THIS CODE
-      if (!/(&|\?)username=/.test(window.location.search)) {
-        var newSearch = window.location.search;
-        if (newSearch !== '' & newSearch !== '?') {
-          newSearch += '&';
-        }
-        newSearch += 'username=' + (prompt('What is your name?') || 'anonymous');
-        window.location.search = newSearch;
-      }
+// YOU DO NOT NEED TO EDIT THIS CODE
+if (!/(&|\?)username=/.test(window.location.search)) {
+  var newSearch = window.location.search;
+  if (newSearch !== '' & newSearch !== '?') {
+    newSearch += '&';
+  }
+  newSearch += 'username=' + (prompt('What is your name?') || 'anonymous');
+  window.location.search = newSearch;
+}
     </script>
     <!-- your scripts -->
     <script src="env/config.js"></script>
@@ -27,17 +27,17 @@
   </head>
   <body>
     <div id="main">
-      <h1>chatterbox</h1>
+      <h1>Chatterbox</h1>
       <!-- lets do chat rooms here -->
-      <p>Room: </p>
+      <p>Room: 
       <select class="roomSelect">
         <option id="test">Test</option>
       </select>
-      
-      <form>
+      </p>
+      <form id="message">
       Message:<br>
       <input type="text" class="chatbox" name="message">
-      <input type="submit" value="Submit">
+      <input type="submit" class="button" value="Submit">
       
       </form>
     </div>
