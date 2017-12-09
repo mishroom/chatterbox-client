@@ -15,6 +15,7 @@ app.init = function () {
   // });  
   this.handleUsernameClick();
   this.handleSubmit();
+  $('#chats').append('<p>test</p>');
 };
 
 
@@ -66,8 +67,14 @@ app.clearMessages = function () {
   $('#chats').empty();
 };
 
-app.renderMessage = function () {
-  $('#chats').append(message);
+app.renderMessage = function (message) {
+  var renderedMessage = document.createElement('div');
+  var user = document.createTextNode(message.username);
+  var text = document.createTextNode(message.text);
+  renderedMessage.appendChild(user);
+  renderedMessage.appendChild(text);
+  console.log('in render', renderedMessage);
+  $('#chats').append(renderedMessage);
 };
 
 app.renderRoom = function () {
