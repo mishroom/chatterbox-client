@@ -1,7 +1,9 @@
 var app = {
 
 };
-// console.log(this);
+// console.log(this);//window
+
+// this.init();
 app.init = function () {
   
   //event listeners here
@@ -55,16 +57,16 @@ app.fetch = function (message) {
     contentType: 'application/json',
     
     success: function (data) {
-      console.log(data);
+      // console.log(data);
       for (var i = 0; i < data.results.length; i++) {
        
         app.renderMessage(data.results[i]);
       }
-      console.log('chatterbox: Message sent');
+      console.log('chatterbox: Messages loaded');
     },
     error: function (data) {
     // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
-      console.error('chatterbox: Failed to send message', data);
+      console.error('chatterbox: Failed to load messages', data);
     }
   });
 };
@@ -75,11 +77,12 @@ app.clearMessages = function () {
 
 app.renderMessage = function (message) {
   var renderedMessage = document.createElement('div');
+  // renderedMessage.addClass("username");
   var user = document.createTextNode(message.username);
   var text = document.createTextNode(message.text);
   renderedMessage.appendChild(user);
   renderedMessage.appendChild(text);
-  console.log('in render', renderedMessage);
+  // console.log('in render', renderedMessage);
   $('#chats').append(renderedMessage);
 };
 
@@ -96,7 +99,9 @@ app.handleUsernameClick = function () {
 };
 
 app.handleSubmit = function() {
-  
+  $(".button").on('click', function () {
+    this.send(message);
+  });
 };
 
 
