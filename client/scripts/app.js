@@ -106,13 +106,16 @@ app.handleUsernameClick = function () {
 
 app.handleSubmit = function() {
  //get user information
- //get message
+ //get text
+ //get room name
+  var room = $('.roomSelect').val();
+  var name = window.location.search.substring(10);
  //add to message
-   var message = {
-    username: "mish fish delish",
-    text: "i dont actually like fish tho",
-    roomname: 'lobby'
-   };
+  var message = {
+    username: name,
+    text: "WOLOLOLOL",
+    roomname: room
+ };
   this.send(message);
 };
 
