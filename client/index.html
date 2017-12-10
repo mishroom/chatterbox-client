@@ -37,7 +37,7 @@ if (!/(&|\?)username=/.test(window.location.search)) {
       <form id="message">
       Message:<br>
       <input type="text" class="chatbox"  name="message">
-      <input type="submit" method="get" onclick="sendMessages($('#message').val());">
+      <input type="submit" method="get" >
      <!--  type="button" class="button"  -->
       
       </form>
@@ -48,7 +48,9 @@ if (!/(&|\?)username=/.test(window.location.search)) {
     <div class="username"></div>
     <script src="scripts/app.js"></script>
     <script type="text/javascript"> 
-        this.app.init();
+        $(function() {
+          app.init();
+        });
     </script>
     <script>
       var sendMessages = function(name) {

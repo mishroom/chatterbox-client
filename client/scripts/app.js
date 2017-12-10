@@ -15,8 +15,13 @@ app.init = function () {
   //   $('body').append(fetch(message));
   // });  
   this.fetch();
-  this.handleUsernameClick();
-  this.handleSubmit();
+  $('#message').on('submit', function(event) {
+    console.log(app);
+    event.preventDefault();
+    app.handleSubmit();
+  });
+  // $().on('click', this.handleUsernameClick());
+  // this.handleSubmit();
   
 };
 
@@ -50,6 +55,7 @@ app.send = function (message) {
 };
 
 app.fetch = function (message) {
+  console.log("hi");
   $.ajax({
     url: app.server,
     type: 'GET',
@@ -105,9 +111,14 @@ app.handleSubmit = function(input) {
   //   console.log("inside handleSubmit",input.value);
   // this.send(input);
   // });
-  v
+  var form = $('#message').submit(function() {
+    var $inputs = $('#message :input');
+    $inputs.each(function() {
+      values[this.name] = $(this).val();
+    });
+  });
   // var text = document.getElementByClassName('chatbox');
-     console.log("input", input);
+     console.log("form", form);
   // var username = document.getElementByClassName;
   var message = {
     'text': input,
