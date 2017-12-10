@@ -16,7 +16,6 @@ app.init = function () {
   // });  
   this.fetch();
   $('#message').on('submit', function(event) {
-    console.log(app);
     event.preventDefault();
     app.handleSubmit();
   });
@@ -40,9 +39,9 @@ app.send = function (message) {
 //so basically need to connect "clicking" the "submit" button with app.send(message);
   $.ajax({
   // This is the url you should use to communicate with the parse API server.
-    url: app.server,
+    url: this.server,
     type: 'POST',
-    data: message,
+    data: JSON.stringify(message),
     contentType: 'application/json',
     success: function (data) {
       console.log('chatterbox: Message sent');
@@ -55,7 +54,7 @@ app.send = function (message) {
 };
 
 app.fetch = function (message) {
-  console.log("hi");
+
   $.ajax({
     url: app.server,
     type: 'GET',
@@ -105,27 +104,16 @@ app.handleUsernameClick = function () {
   // });
 };
 
-app.handleSubmit = function(input) {
-  // $(".button").on('click', function () {
-  var input = document.getElementsByClassName("chatbox")[0];
-  //   console.log("inside handleSubmit",input.value);
-  // this.send(input);
-  // });
-  var form = $('#message').submit(function() {
-    var $inputs = $('#message :input');
-    $inputs.each(function() {
-      values[this.name] = $(this).val();
-    });
-  });
-  // var text = document.getElementByClassName('chatbox');
-     console.log("form", form);
-  // var username = document.getElementByClassName;
-  var message = {
-    'text': input,
-    'user': 'lara',
-    'roomname': 'lobby'
-  };
-  // app.send(message);
+app.handleSubmit = function() {
+ //get user information
+ //get message
+ //add to message
+   var message = {
+    username: "mish fish delish",
+    text: "i dont actually like fish tho",
+    roomname: 'lobby'
+   };
+  this.send(message);
 };
 
 
