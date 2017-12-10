@@ -36,10 +36,12 @@ if (!/(&|\?)username=/.test(window.location.search)) {
       </p>
       <form id="message">
       Message:<br>
-      <input type="text" class="chatbox" name="message">
-      <input type="submit" class="button" value="Submit">
+      <input type="text" class="chatbox"  name="message">
+      <input type="submit" method="get" onclick="sendMessages($('#message').val());">
+     <!--  type="button" class="button"  -->
       
       </form>
+      <!-- <button onclick="app.handleSubmit()"> Submit</button> -->
     </div>
     <div id="chats"></div>
     <div class="roomSelect"></div> 
@@ -47,6 +49,12 @@ if (!/(&|\?)username=/.test(window.location.search)) {
     <script src="scripts/app.js"></script>
     <script type="text/javascript"> 
         this.app.init();
+    </script>
+    <script>
+      var sendMessages = function(name) {
+        console.log("submit on click going into sendmessages");
+        this.send(name);
+      };
     </script>
   </body>
 </html>

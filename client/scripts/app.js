@@ -14,9 +14,10 @@ app.init = function () {
   //   var message = this.send(message);
   //   $('body').append(fetch(message));
   // });  
+  this.fetch();
   this.handleUsernameClick();
   this.handleSubmit();
-  this.fetch();
+  
 };
 
 
@@ -34,7 +35,7 @@ app.send = function (message) {
 //so basically need to connect "clicking" the "submit" button with app.send(message);
   $.ajax({
   // This is the url you should use to communicate with the parse API server.
-    url: this.server,
+    url: app.server,
     type: 'POST',
     data: message,
     contentType: 'application/json',
@@ -50,7 +51,7 @@ app.send = function (message) {
 
 app.fetch = function (message) {
   $.ajax({
-    url: this.server,
+    url: app.server,
     type: 'GET',
     data: message,
     data: {order: "-createdAt", limit: 10},
@@ -98,10 +99,22 @@ app.handleUsernameClick = function () {
   // });
 };
 
-app.handleSubmit = function() {
-  $(".button").on('click', function () {
-    this.send(message);
-  });
+app.handleSubmit = function(input) {
+  // $(".button").on('click', function () {
+  var input = document.getElementsByClassName("chatbox")[0];
+  //   console.log("inside handleSubmit",input.value);
+  // this.send(input);
+  // });
+  v
+  // var text = document.getElementByClassName('chatbox');
+     console.log("input", input);
+  // var username = document.getElementByClassName;
+  var message = {
+    'text': input,
+    'user': 'lara',
+    'roomname': 'lobby'
+  };
+  // app.send(message);
 };
 
 
