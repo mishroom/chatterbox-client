@@ -41,7 +41,7 @@ app.send = function (message) {
   // This is the url you should use to communicate with the parse API server.
     url: this.server,
     type: 'POST',
-    data: JSON.stringify(message),
+    data: message,
     contentType: 'application/json',
     success: function (data) {
       console.log('chatterbox: Message sent');
@@ -84,7 +84,7 @@ app.clearMessages = function () {
 app.renderMessage = function (message) {
   var renderedMessage = document.createElement('div');
   // renderedMessage.addClass("username");
-  var user = document.createTextNode(message.username);
+  var user = document.createTextNode(message.username + " ");
   var text = document.createTextNode(message.text);
   renderedMessage.appendChild(user);
   renderedMessage.appendChild(text);
@@ -113,10 +113,10 @@ app.handleSubmit = function() {
  //add to message
   var message = {
     username: name,
-    text: "WOLOLOLOL",
+    text: "I AM LOBBY",
     roomname: room
  };
-  this.send(message);
+  this.send(JSON.stringify(message));
 };
 
 
