@@ -53,12 +53,12 @@ app.send = function (message) {
   });
 };
 
-app.fetch = function (message) {
+app.fetch = function () {
 
   $.ajax({
     url: app.server,
     type: 'GET',
-    data: message,
+    data: JSON.stringify(message),
     data: {order: "-createdAt", limit: 10},
     contentType: 'application/json',
     
